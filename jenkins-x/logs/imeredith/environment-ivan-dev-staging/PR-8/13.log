@@ -1,0 +1,28 @@
+Step: build-step-credential-initializer-5qmdg:
+
+{"level":"warn","ts":1556770941.3248832,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1556770941.3260286,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-*********-environment-ivan-dev-qjn6z:
+
+{"level":"warn","ts":1556770942.8146257,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1556770943.9703467,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/*********/environment-ivan-dev-staging\" @ \"c3d363d8b36345a86a5c92a65fd25b4e119b613d\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-05-02T04:22:26Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:cc439025964f7003d4574d4fabd0e5b7913306a6,8:c3d363d8b36345a86a5c92a65fd25b4e119b613d
+ran git fetch --unshallow origin c3d363d8b36345a86a5c92a65fd25b4e119b613d: cc439025964f7003d4574d4fabd0e5b7913306a6: in 
+ran git checkout master in 
+ran git reset --hard cc439025964f7003d4574d4fabd0e5b7913306a6 in 
+ran clean --force -d . in 
+ran git merge c3d363d8b36345a86a5c92a65fd25b4e119b613d in 
+Step: build-step-build-helm-build:
+
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
