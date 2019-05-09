@@ -1,0 +1,92 @@
+Step: build-step-credential-initializer-bkmwb:
+
+{"level":"warn","ts":1557361695.6308575,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557361695.6320517,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-*********-environment-ivan-dev-fs8tt:
+
+{"level":"warn","ts":1557361696.9577732,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557361698.1393342,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/*********/environment-ivan-dev-staging\" @ \"v0.0.19\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-05-09T00:28:20Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:b337ee373a200c3770f0048d50ed77a1e7208e5f
+time="2019-05-09T00:28:20Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-setup-**-git-credentials:
+
+Generated Git credentials file /builder/home/git/credentials
+Step: build-step-build-helm-apply:
+
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 63
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Applying helm chart at . as release name ** to namespace **-staging
+Ignoring templates/.gitignore
+Wrote chart values.yaml values.yaml generated from directory tree
+generated helm values.yaml
+
+PipelineSecrets: {}
+cleanup:
+  Annotations:
+    helm.sh/hook: pre-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --cleanup
+controllerbuild:
+  enabled: true
+dockerRegistry: gcr.io
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  Args:
+  - --v
+  - 4
+  config:
+    domain: 35.244.108.94.nip.io
+    exposer: Ingress
+    http: "true"
+jenkins:
+  Servers:
+    Global:
+      EnvVars:
+        TILLER_NAMESPACE: kube-system
+  enabled: false
+prow: {}
+
+
+Using values files: values.yaml
+Applying chart overrides
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+Enumerating objects: 10, done.
+Counting objects:  10% (1/10)   Counting objects:  20% (2/10)   Counting objects:  30% (3/10)   Counting objects:  40% (4/10)   Counting objects:  50% (5/10)   Counting objects:  60% (6/10)   Counting objects:  70% (7/10)   Counting objects:  80% (8/10)   Counting objects:  90% (9/10)   Counting objects: 100% (10/10)   Counting objects: 100% (10/10), done.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Total 1270 (delta 0), reused 7 (delta 0), pack-reused 1260
+Applying generated chart . YAML via kubectl in dir: /tmp/helm-template-workdir-777210824/**/output
+role.rbac.authorization.k8s.io/cleanup configured
+rolebinding.rbac.authorization.k8s.io/cleanup configured
+serviceaccount/cleanup configured
+configmap/exposecontroller configured
+role.rbac.authorization.k8s.io/expose configured
+rolebinding.rbac.authorization.k8s.io/expose configured
+serviceaccount/expose configured
+deployment.extensions/**-test-qs configured
+release.jenkins.io/test-qs-0.0.21 created
+service/test-qs configured
+
+Applying Helm hook post-upgrade YAML via kubectl in file: /tmp/helm-template-workdir-777210824/**/helmHooks/env/charts/expose/templates/job.yaml
+job.batch/expose created
+
+Waiting for helm post-upgrade hook Job expose to complete before removing it
+Deleting helm hook sources from file: /tmp/helm-template-workdir-777210824/**/helmHooks/env/charts/expose/templates/job.yaml
+job.batch "expose" deleted
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**,jenkins.io/version!=63 from all pvc configmap release sa role rolebinding secret
+release.jenkins.io "test-qs-0.0.17" deleted
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**,jenkins.io/version!=63,jenkins.io/namespace=**-staging from clusterrole clusterrolebinding
